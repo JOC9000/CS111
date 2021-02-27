@@ -1,0 +1,3 @@
+I have completed first part of the project so far(block consistency audits) based off the discussion 1B slides pseudocode.
+
+I have yet to implement the "UNREFERENCED" part of the block consistency audits but it seems easy and I can work on it later.
