@@ -1,0 +1,58 @@
+NAME: Jorge Contreras
+EMAIL: jorgec9000@g.ucla.edu
+ID: 205379811
+
+Files in tarball:
+      Makefile - contains make instructions for lab1b-client, lab1b-server, tarball, and cleanup
+
+      README - this file
+
+      lab1b-client - contains the code for the client
+
+      lab1b-server - contains the code for the server in the project
+
+Code specifics:
+     lab1b-client.c -  contains main and exit_handler functions. Exit_handler built off design
+     from last lab, used to make code in main look more clean. The main function is quite large
+     and unsightly, but was kept all in one place for readability. Optional options are 
+     implemented with the use of toggle variable that "unlock" certain actions. Much of the
+     socket code is adapted from the example client program that was found on the tutorial
+     page given on the spec website.
+
+     lab1b-server.c - contains 4 functions: completion_status, sighandler, exit_handler, and 
+     main. Also has numerous global variables, which although aen't good coding practice in 
+     general, helped me in functions like the sighandler that can take only one variable to 
+     ensure I get the desired output. The exit_handler here is distinct from the one in the
+     client code as the numerous file descriptors that must be closed on exit are difficult to
+     keep track of. completion_status function is used to capture the shell's exit signal
+     and status and print it to stderr. Much of the socket code was adapted from the examples
+     given in a link found on the spec page.
+
+Limitations:
+	My code for both the client and the servers generally uses buffers sized at 256, so
+	any message sent that is larger than that has broken the whole program in my experience.
+	In my testing I have encountered this but a TA has said that a buffer size of 256
+	should be fine for their testing purposes. 
+
+Features:
+	--port option required for both programs to work with same port number for communication
+	--compress option optional for both programs but required on both if it is used to 
+	work correctly
+
+	client: --log option allows logging of the received and sent messages from server to 
+	client
+		--compress allows compression and decompression of messages sent and received
+		between server and client
+
+	server: forks a shell and facilitates communication between shell and the client
+
+Testing methodology:
+	Many of my test involve running usual terminal commands such as echo, or ls, then
+	observing output and log files to see if expected behavior was given. 
+
+	By far the hardest feature to implement was the compression with zlib, as the 
+	documentation is insanely difficult to read and formatted not well at all. With a 
+	small program however, i found how to compress a character array and use strcpy to 
+	keep the compressed information in the original buffer. 
+	 
+       
