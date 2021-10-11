@@ -1,0 +1,17 @@
+NAME: Jorge Contreras, Nevin Liang
+EMAIL: jorgec9000@g.ucla.edu, nliang868@g.ucla.edu
+ID: 205379811, 705575353
+
+Files:
+
+README - this file
+
+Makefile - has the three necessary targets as mandated by the spec, default
+	 target creats a bash script that is named lab3b
+
+main.py - implementation of the lab, is used 
+
+Research:
+	This implementation is inspired by the pseudocode that was given
+in the Discussion 1B Week 7 Slides, many of the used variable take on those
+names but uses them in a slightly different way.
